@@ -10,30 +10,38 @@ function App() {
   const [presupuesto, setPresupuesto] = useState(0)
   const [presupuestoDefinido, setPresupuestoDefinido] = useState(false)
   const [resto, setResto] = useState(0)
+  const [gastoArr, setGastoArr] = useState([])
+
+  let agregarGasto = (gasto) => {
+    setGastoArr([...gastoArr, gasto])
+
+  }
 
   return (
     <>
-      <div className="container">
+      <div className='container'>
         <h1>Gasto semanal</h1>
 
-        { !presupuestoDefinido ? (
-        <div className="contenido-principal">
-          <PresupuestoComp
-            setPresupuesto={setPresupuesto}
-            setResto={setResto}
-            setPresupuestoDefinido = {setPresupuestoDefinido}
-          ></PresupuestoComp>
-        </div>
-        )  : (
-        <div className="row">
-          <div className="one-half column">
-            <Formulario></Formulario>
+        {!presupuestoDefinido ? (
+          <div className='contenido-principal'>
+            <PresupuestoComp
+              setPresupuesto={setPresupuesto}
+              setResto={setResto}
+              setPresupuestoDefinido={setPresupuestoDefinido}
+            ></PresupuestoComp>
           </div>
-          <div className="one-half column">
-            2
+        ) : (
+          <div className='row'>
+            <div className='one-half column'>
+              <Formulario
+                agregarGasto={agregarGasto}
+              ></Formulario>
+            </div>
+            <div className='one-half column'>
+              2
+            </div>
           </div>
-        </div>
-        ) }
+        )}
 
 
       </div>
