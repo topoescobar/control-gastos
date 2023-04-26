@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Error from './Error'
 
-const Pregunta = ({setPresupuesto, setResto}) => {
+const PresupuestoComp = ({setPresupuesto, setResto, setPresupuestoDefinido}) => {
 
     const [cantidad, setCantidad] = useState(0.0)
     const [error, setError] = useState(false)
@@ -22,6 +22,7 @@ const Pregunta = ({setPresupuesto, setResto}) => {
 
         setPresupuesto(cantidad)
         setResto(cantidad)
+        setPresupuestoDefinido(true)
 
     }
 
@@ -31,7 +32,7 @@ const Pregunta = ({setPresupuesto, setResto}) => {
     <form onSubmit={agregarPresupuesto}>
         <input type='number' 
         className='u-full-width' 
-        placeholder='Ingresar tu presupuesto'
+        placeholder='Ingresar tu presupuesto' 
         onChange={definirPresupuesto}
          />
 
@@ -46,4 +47,4 @@ const Pregunta = ({setPresupuesto, setResto}) => {
   )
 }
 
-export default Pregunta
+export default PresupuestoComp
