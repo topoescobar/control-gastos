@@ -4,16 +4,18 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import PresupuestoComp from './components/PresupuestoComp'
 import Formulario from './components/Formulario'
+import ListadoGastos from './components/ListadoGastos'
+import Calculos from './components/Calculos'
 
 function App() {
 
   const [presupuesto, setPresupuesto] = useState(0)
   const [presupuestoDefinido, setPresupuestoDefinido] = useState(false)
   const [resto, setResto] = useState(0)
-  const [gastoArr, setGastoArr] = useState([])
+  const [gastosArr, setgastosArr] = useState([])
 
   let agregarGasto = (gasto) => {
-    setGastoArr([...gastoArr, gasto])
+    setgastosArr([...gastosArr, gasto])
 
   }
 
@@ -38,7 +40,13 @@ function App() {
               ></Formulario>
             </div>
             <div className='one-half column'>
-              2
+              <ListadoGastos
+                gastosArr={gastosArr}
+              ></ListadoGastos>
+              <Calculos
+                presupuesto={presupuesto}
+                resto={resto}
+              ></Calculos>
             </div>
           </div>
         )}

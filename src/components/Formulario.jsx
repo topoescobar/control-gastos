@@ -24,7 +24,7 @@ const Formulario = (_props) => {
             return
         }
 
-        //construir el gasto (obj)
+        //construir el Gasto (obj)
         const gastoObj = {
             id: shortid.generate(),
             nomGasto: nombreGasto.trim(),
