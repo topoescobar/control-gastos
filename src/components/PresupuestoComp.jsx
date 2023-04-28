@@ -3,7 +3,7 @@ import Error from './Error'
 
 const PresupuestoComp = ({setPresupuesto, setResto, setPresupuestoDefinido}) => {
 
-    const [cantidad, setCantidad] = useState(0.0)
+    const [cantidad, setCantidad] = useState(0)
     const [error, setError] = useState(false)
 
     const definirPresupuesto = e => {

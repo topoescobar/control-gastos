@@ -1,4 +1,5 @@
 import React from 'react'
+import {revisarPresupuesto} from '../helpers'
 
 const Calculos = (_props) => {
   return (
@@ -6,7 +7,7 @@ const Calculos = (_props) => {
         <div className='alert alert-primary'>
             Presupuesto: $ {_props.presupuesto}
         </div>
-        <div className='alert'>
+        <div className={revisarPresupuesto(_props.presupuesto, _props.resto)}>
             Resto: $ {_props.resto}
         </div>
     </>

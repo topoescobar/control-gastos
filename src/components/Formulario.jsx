@@ -33,7 +33,9 @@ const Formulario = (_props) => {
         setFormError(false)
 
         //pasar el gasto al comp ppal 
-        _props.agregarGasto(gastoObj)
+        _props.setGastoX(gastoObj)
+        //cuando setea el gasto creado a true se ejecuta useEffect
+        _props.setGastoCreado(true)
 
         //resetear el form
         setNombreGasto('')

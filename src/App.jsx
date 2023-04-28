@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,9 +13,23 @@ function App() {
   const [presupuestoDefinido, setPresupuestoDefinido] = useState(false)
   const [resto, setResto] = useState(0)
   const [gastosArr, setgastosArr] = useState([])
+  const [gastoXobj, setGastoX ] = useState({})
+  const [gastoCreado, setGastoCreado] = useState(false)
 
-  let agregarGasto = (gasto) => {
-    setgastosArr([...gastosArr, gasto])
+  //Calcular el resto
+  useEffect(() => {
+    if (gastoCreado) {
+      setgastosArr([...gastosArr, gastoXobj])
+      //restar el gasto al total
+      let presupuestoRestante = resto - gastoXobj.cant
+      setResto(presupuestoRestante)
+      
+      //despues de sumado el objeto cortar con gastoCreado
+      setGastoCreado(false)
+    }
+  }, [gastoXobj] )
+
+  let agregarGasto = () => {
 
   }
 
@@ -36,7 +50,9 @@ function App() {
           <div className='row'>
             <div className='one-half column'>
               <Formulario
-                agregarGasto={agregarGasto}
+                // agregarGasto={agregarGasto}
+                setGastoX = {setGastoX}
+                setGastoCreado = {setGastoCreado}
               ></Formulario>
             </div>
             <div className='one-half column'>
