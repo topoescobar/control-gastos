@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
 
 const Gasto = ({objGasto}) => {
   return (
@@ -9,6 +11,10 @@ const Gasto = ({objGasto}) => {
         </p>
     </li>
   )
+}
+
+Gasto.propTypes = {
+  Gasto: PropTypes.object
 }
 
 export default Gasto
